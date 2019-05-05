@@ -3,7 +3,7 @@ import axios from "axios";
 export default class beersService {
   constructor() {
     this.service = axios.create({
-      baseURL: "https://ironbeer-api.herokuapp.com/beers"
+      baseURL: "https://ironbeerapi.herokuapp.com/beers/all"
     });
   }
 

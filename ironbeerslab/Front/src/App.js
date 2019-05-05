@@ -2,9 +2,15 @@ import React, { Component } from "react";
 import "./App.css";
 import Home from "./Home";
 import Navbar from "./Navbar";
-// import Allbeers from "./Components/beers";
-// import Newbeers from "./Components/randombeer";
-// import Randombeers from "./Components/newbeer";
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch
+} from "react-router-dom";
+import AllBeers from "./Components/beers";
+import Randombeers from "./Components/randombeer";
+import Newbeers from "./Components/newbeer";
 
 export default class App extends Component {
   constructor() {
@@ -21,6 +27,15 @@ export default class App extends Component {
         <h1>Ironbeers</h1>
 
         <Home />
+        <Router>
+          <Switch>
+            <Route path="/beers/new" component={Newbeers} />
+            <Route path="/beers/random" component={Randombeers} />
+            <Route path="/beers/all" component={AllBeers} />
+            <Route exact path="/" component={Home} />
+            <Redirect from="*" to="/" />
+          </Switch>
+        </Router>
       </div>
     );
   }
