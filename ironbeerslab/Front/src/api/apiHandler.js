@@ -1,60 +1,10 @@
 import axios from "axios";
 
-export default class beersService {
-  constructor() {
-    this.service = axios.create({
-      baseURL: "https://ironbeerapi.herokuapp.com/beers/all"
-    });
-  }
+const url = "https://ironbeerapi.herokuapp.com";
 
-  getAllBeers = () => {
-    return this.service
-      .get("/all")
-      .then(res => {
-        return res.data;
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
+export const getAllBeers = () => axios.get(url + "/beers/all");
+//bu yukarda buna eşit: https://ironbeerapi.herokuapp.com/beers/all'dan tüm beerları almak için yapıyoruz
 
-  getOneBeer = id => {
-    return this.service
-      .get(`/single/${id}`)
-      .then(res => {
-        return res.data;
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
+export const getOneBeer = id => axios.get(url + "single/:id");
 
-  searchBeer = query => {
-    return this.service
-      .get(`/search?q=${query}`)
-      .then(res => {
-        return res.data;
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-
-  getRandomBeer = () => {
-    return this.service
-      .get("/random")
-      .then(res => {
-        return res.data;
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-
-  addBeer = body => {
-    return this.service.post("/new", body).then(res => {
-      console.log(res);
-      return res.data;
-    });
-  };
-}
+export const getRandomBeer = () => axios.get(url);

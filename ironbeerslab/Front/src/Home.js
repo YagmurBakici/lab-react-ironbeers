@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom";
 // import Navbar from "./Navbar";
 // In reactjs its Link and not link. and you need to install react-roter-dom
 // Router component is what makes the connection between browser location and the react application. It doesn't render anything visible on your page.
@@ -8,10 +8,10 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <Router>
-      <Link to="/beers/all">
+    <nav>
+      <Link to="/all-beers">
         <img
-          src="https://fotostrasse.com/wp-content/uploads/2019/02/Lager-Lager_Our-Favorite-Craft-Beer-Bar-in-Kreuzkolln_02.jpg"
+          src="https://www.beerhawk.co.uk/media/catalog/product/b/e/beliglan___beer_case.png"
           width="300px"
           alt="All beers"
         />
@@ -34,19 +34,15 @@ const Home = () => {
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br />
         Incidunt provident adipisci earum molestiae quos excepturi.
       </p>
-      <Link to="/beers/new">
+      <Link to="/beer/one">
         <img
           src="https://www.beyondbeer.de/media/image/30/b3/a0/paket_geschenkpaket_einsteiger_600x600.jpg"
           width="300px"
-          alt="New beers"
+          alt="One beer"
         />
-        <h1> New Beer</h1>
+        <h1> One Beer</h1>
       </Link>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br />
-        Incidunt provident adipisci earum molestiae quos excepturi.
-      </p>
-    </Router>
+    </nav>
   );
 };
 

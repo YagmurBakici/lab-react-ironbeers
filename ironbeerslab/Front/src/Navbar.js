@@ -1,16 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <Link to="/">
+      <NavLink exact to="/">
         <img
           src="https://image.flaticon.com/icons/svg/25/25694.svg"
           width="30px"
           alt="Nav"
         />
-      </Link>
+      </NavLink>
     </nav>
   );
 };

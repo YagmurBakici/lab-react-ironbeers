@@ -2,22 +2,16 @@ import React, { Component } from "react";
 import "./App.css";
 import Home from "./Home";
 import Navbar from "./Navbar";
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch
-} from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+
 import AllBeers from "./Components/beers";
 import Randombeers from "./Components/randombeer";
-import Newbeers from "./Components/newbeer";
+import Onebeer from "./Components/onebeer";
 
+function NotFound() {
+  return <p>404</p>;
+}
 export default class App extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
   render() {
     return (
       <div className="App">
@@ -26,16 +20,13 @@ export default class App extends Component {
         </header>
         <h1>Ironbeers</h1>
 
-        <Home />
-        <Router>
-          <Switch>
-            <Route path="/beers/new" component={Newbeers} />
-            <Route path="/beers/random" component={Randombeers} />
-            <Route path="/beers/all" component={AllBeers} />
-            <Route exact path="/" component={Home} />
-            <Redirect from="*" to="/" />
-          </Switch>
-        </Router>
+        <Switch>
+          <Route path="/" component={Home} exact />
+          <Route path="/all-beers" component={AllBeers} />
+          <Route path="/beers/:id/" component={Onebeer} />
+          <Route path="/beers/random" component={Randombeers} />
+          <Route path="/*" component={NotFound} />
+        </Switch>
       </div>
     );
   }
